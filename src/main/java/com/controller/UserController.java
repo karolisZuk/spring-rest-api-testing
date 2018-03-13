@@ -34,7 +34,7 @@ public class UserController {
     public LoginResponse login(@Valid @RequestBody User user){
         if(service.checkIfUserExists(user)) {
             String sessionId=service.createNewSessionToken(user.getName(), user.getPassword());
-            service.storeNewSeasion(sessionId, user);
+            //service.storeNewSeasion(sessionId, user);
             return new LoginResponse(sessionId,user);
         }
         return new LoginResponse();
