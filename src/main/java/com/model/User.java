@@ -1,17 +1,21 @@
 package com.model;
 
+import com.repository.UserRights;
+import com.repository.UserToken;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="users")
-public class User{
+public class User {
 
     @Id
     private ObjectId id;
     private String name;
-    private int age;
-    private  String email;
+    private UserRights userRights;
+    private String token;
+    private String password;
+    private String email;
 
 
     public ObjectId getId() {
@@ -30,12 +34,12 @@ public class User{
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public UserRights getRights() {
+        return userRights;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setRights(UserRights rights) {
+        this.userRights = rights;
     }
 
     public String getEmail() {
@@ -44,5 +48,21 @@ public class User{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
